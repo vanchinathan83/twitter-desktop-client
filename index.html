@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
-      <head>
-              <title>Hello World!</title>
-                </head>
-                  <body>
-                          <h1>Hello World!</h1>
-                              We are using node.js <script>document.write(process.version)</script>.
-                                </body>
+     <head>
+         <title>Hello World!</title>
+         <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap.min.css">
+         <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap-theme.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    	 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+         <script type="text/javascript"  src="styles/bootstrap/js/bootstrap.min.js"></script>
+         <script type="text/javascript" src="script/app.js"></script>
+    	 <script>
+        	function bodyOnLoad(){
+            	window.location.assign('http://localhost:2332/');
+        	}
+    	</script>
+	</head>
+	<body onload="bodyOnLoad()">
+	</body>
 </html>

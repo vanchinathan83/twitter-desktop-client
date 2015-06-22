@@ -1,5 +1,13 @@
 {
   "name": "nw-demo",
   "version": "0.0.1",
-  "main": "index.html"
+  "main": "index.html",
+  "window": {
+    "toolbar": true,
+    "width": 800,
+    "height": 600
+  },
+  "dependencies": {
+    "express": "~4.13.0"
+  }
 }
