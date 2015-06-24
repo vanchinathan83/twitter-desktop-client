@@ -5,8 +5,8 @@ var twitterAPI = require('node-twitter-api');
 var session = require('express-session');
 var gui = require('nw.gui');
 var twitter = new twitterAPI({
-    consumerKey: '4nIqngF4BsRGolE2N1E0AHDby',
-    consumerSecret: 'LAV4yIEqZFYxdKp3AmRhR7ECpzZUAl6Wax6zStwePkGDDyp3j9',
+    consumerKey: 'a',
+    consumerSecret: 'b',
     callback: 'oob'
 });
 
@@ -22,15 +22,24 @@ app.get("/twitter_access", function(request,response){
         response.send(error);
     } else {
         session.requestToken = requestToken;
-        response.render('auth', { title: 'Authorize via Twitter', message: 'Copy the below link, using a browser and get a auth token', auth: "https://api.twitter.com/oauth/authorize?oauth_token="+requestToken});
+        response.render('auth', { title: 'Authorize via Twitter', message: 'Copy the below link, using a browser and get a auth token', auth: "https://api.twitter.com/oauth/authorize?oauth_token="+requestToken , action:"get_access_token"});
         //response.redirect(302,"https://api.twitter.com/oauth/authorize?oauth_token="+requestToken);
     }
   });
 });
 
+app.get("/get_access_token", function(request, response){
+  response.send("Page to add the access code");
+
+});
+
+app.post("/get_access_token", function(request, response){
+  response.send("Page to validate the access code");
+
+});
+
 app.get("/", function(request,response){
   gui.App.clearCache();
-
   if (process.platform === "darwin") {
     var mb = new gui.Menu({type: 'menubar'});
     mb.createMacBuiltin('RoboPaint', {
