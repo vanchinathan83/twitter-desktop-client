@@ -22,13 +22,22 @@ app.get("/twitter_access", function(request,response){
         response.send(error);
     } else {
         session.requestToken = requestToken;
-        response.redirect(302,"https://api.twitter.com/oauth/authorize?oauth_token="+requestToken);
+        response.render('auth', { title: 'Authorize via Twitter', message: 'Copy the below link, using a browser and get a auth token', auth: "https://api.twitter.com/oauth/authorize?oauth_token="+requestToken});
+        //response.redirect(302,"https://api.twitter.com/oauth/authorize?oauth_token="+requestToken);
     }
   });
 });
 
 app.get("/", function(request,response){
   gui.App.clearCache();
+
+  if (process.platform === "darwin") {
+    var mb = new gui.Menu({type: 'menubar'});
+    mb.createMacBuiltin('RoboPaint', {
+      hideEdit: false,
+    });
+    gui.Window.get().menu = mb;
+  }
   response.render('index', { title: 'Hey', message: 'Hello There', login: 'twitter_access'});
 });
 
