@@ -5,8 +5,8 @@ var twitterAPI = require('node-twitter-api');
 var session = require('express-session');
 var gui = require('nw.gui');
 var twitter = new twitterAPI({
-    consumerKey: 'a',
-    consumerSecret: 'b',
+    consumerKey: '4nIqngF4BsRGolE2N1E0AHDby',
+    consumerSecret: 'LAV4yIEqZFYxdKp3AmRhR7ECpzZUAl6Wax6zStwePkGDDyp3j9',
     callback: 'oob'
 });
 
@@ -29,8 +29,7 @@ app.get("/twitter_access", function(request,response){
 });
 
 app.get("/get_access_token", function(request, response){
-  response.send("Page to add the access code");
-
+  response.render("access_token");
 });
 
 app.post("/get_access_token", function(request, response){
