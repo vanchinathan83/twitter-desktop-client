@@ -7,10 +7,16 @@
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     	 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
          <script type="text/javascript"  src="styles/bootstrap/js/bootstrap.min.js"></script>
-         <script type="text/javascript" src="script/app.js"></script>
+         <script type="text/javascript" src="app.js"></script>
     	 <script>
         	function bodyOnLoad(){
-            	window.location.assign('http://localhost:2332/');
+                for(module in global.require.cache){
+                    if(global.require.cache.hasOwnProperty(module)){
+                        delete global.require.cache[module];
+                    }
+                }
+                window.location.assign('http://localhost:2335/');
+
         	}
     	</script>
 	</head>
